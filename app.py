@@ -44,6 +44,7 @@ RIGHT_SIDEBAR_STYLE = {
     "width": "18rem",
     "padding": "1rem 1rem",
     "background-color": "#d0dfc8",
+    "alignItems":"center",
     #"border-left": "1px solid #f4f6ef",
     "overflow-y": "auto",
         #"position": "fixed",
@@ -200,10 +201,10 @@ right_sidebar = html.Div(
         #card 1: external news
         dbc.Card(
             [
-                dbc.CardHeader("External News", className="fw-bold bg-primary text-white"),
+                dbc.CardHeader("SUPPLIER NEWS", className="fw-bold bg-primary text-white"),
                 dbc.CardBody(
                     [
-                        html.H5("Supplier Update", className="card-title"),
+                        html.H5("Press Release", className="card-title"),
                         html.P(id= "Externalnews", className="fs-4"),
                     ]
                 ),
@@ -214,7 +215,7 @@ right_sidebar = html.Div(
         # Card 2: Confidential Info
         dbc.Card(
             [
-                dbc.CardHeader("Confidential Info", className="fw-bold bg-primary text-white"),
+                dbc.CardHeader("CONFIDENTIAL INFO", className="fw-bold bg-primary text-white"),
                 dbc.CardBody(
                     [
                         html.H5("Internal Status", className="card-title"),
@@ -226,7 +227,7 @@ right_sidebar = html.Div(
             className="mb-4 shadow-sm",
             ),
         html.Img(src="/assets/TRUTH2.png",
-                    style={"height": "300px", "width":"300px", "marginRight": "auto"},),
+                    style={"height": "300px", "width":"300px", "marginLeft": "5%"},),
         
         
     ],style=RIGHT_SIDEBAR_STYLE, className="d-flex flex-column justify-content-bottom")
@@ -324,6 +325,7 @@ def update_dashboard(selected_supplier):
                             "INV": "#a3c7dc",
                             "CAPA": "#d0dfc8",
                           "Deviations":"#4c5d79" })
+    
     #fig_quality.update_yaxes(range=[-1, 6]),
     fig_quality.update_layout(template="plotly_white",
                              legend=dict(
