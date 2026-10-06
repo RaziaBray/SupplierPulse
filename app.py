@@ -41,7 +41,7 @@ RIGHT_SIDEBAR_STYLE = {
     "top": 0,
     "right": 0,
     "bottom": 0,
-    "width": "18rem",
+    "width": "20rem",
     "padding": "1rem 1rem",
     "background-color": "#d0dfc8",
     "alignItems":"center",
@@ -59,9 +59,9 @@ RIGHT_SIDEBAR_STYLE = {
 
 # Main Content Area Styling
 CONTENT_STYLE = {
-    "margin-left": "10px",
-    "margin-right":"220px",
-    "margin-top":"15px",
+    "margin-left": "1rem",
+    "margin-right":"20rem",
+    "margin-top":"2rem",
     "padding": "2rem 1rem",
 }
 
@@ -75,55 +75,46 @@ header1 =html.Div(
                 # Left: Logo
                 html.Img(
                     src="/assets/splogo2.png",
-                    style={"height": "90px", "width":"300px", "marginRight": "auto"},),
-                 #html.H2("Supplier Pulse", className="text-dark mb-4",style={"height": "40px", "marginLeft": "10px"},),
+                    style={"height": "6rem", "width":"19rem", "marginRight": "auto"},),
+                
                 # Center: Dropdown
                 html.Div(
                     dcc.Dropdown(
                         id="supplier-dropdown",
                         options=[{"label": k, "value": k} for k in df2["Name"]],
-                        #value=list(SUPPLIER_DATA.keys())[0],
                         value=df2["Name"][0],
                         clearable=False,
-                        #),
-                    style={"Display":"flex","height": "80px","width": "300px","marginRight":"350px","padding": "2rem 1rem",},),  # Adjust width as needed
+                    style={"Display":"flex","height": "6rem","width": "25rem","marginRight":"19rem","padding": "2rem 1rem",},), 
                 ),
-                # Right: Empty placeholder to balance the flex space on the right
-                #html.Div(style={"width": "40px", "marginLeft": "auto"}),
                 ],
             style={
                 "background": "linear-gradient(to right, #92b282,#92b282,#d0dfc8, #d0dfc8)",
                 "display": "flex",
-               # "alignItems":"right",
-               # "justifyContent": "space-between",
-                #"padding": "10px"20px",
-                #"backgroundColor": "#92b282",
-                #"borderBottom": "1px solid #d0dfc8",
             },
         )
 
-# Main Content Component
+# Layout of main content
 main_content = html.Div([
     dbc.Container([
         dbc.Row(
                 [
-                dbc.Col(html.Img(src="/assets/factory.png",style={"width": "40px", "height": "50px", "object-fit": "cover"}),
+                dbc.Col(html.Img(src="/assets/factory.png",style={"width": "3rem", "height": "3rem", "object-fit": "cover"}),
                        width="auto",className="pe-2",),
                 dbc.Col(html.H1(id="supplier-title", className="display-4 text-uppercase tracking-wide mb-3",),
-                        style={"height":"100px","width":"150","padding":"1rem,2rem"},
+                        style={"height":"6rem","width":"70rem","padding":"2rem,1rem"},
                                
                        ),                    
                        
                 ],className="align-items-left g-0"),
-                ],style={"display":"flex","marginLeft":"10px", "width":"100%",}),
+                ],style={"display":"flex","marginLeft":"1rem", "width":"100%",}),
 
                 
             dbc.Row(           
                 [
                     dbc.Col(html.H5([html.Strong("Location: "), html.Span(id="sub-location")]),width=7, sm=12, md=3 ),
-                    dbc.Col(html.H5([html.Strong("Qualification: "), html.Span(id="sub-qualification")]), width=5, sm=12, md=3),
-                    dbc.Col(html.H5([html.Strong("Type: "), html.Span(id="sub-type")]), width=5, sm=12, md=3),
-                    dbc.Col(html.H5([html.Strong("Business Criticality: "), html.Span(id="sub-criticality")]), width=5, sm=12, md=3),
+                    dbc.Col(html.H5([html.Strong("Qualification: "), html.Span(id="sub-qualification")]), width=7, sm=12, md=3),
+                    dbc.Col(html.H5([html.Strong("Type: "), html.Span(id="sub-type")]), width=7, sm=12, md=3),
+                    dbc.Col(html.H5([html.Strong("Business Criticality: "), html.Span(id="sub-criticality")]), width=7, sm=12, md=3),
                     
                 ],className="text-emphasis"
                 ),
@@ -154,8 +145,8 @@ main_content = html.Div([
                 dbc.Col(
                     dbc.Card(
                         [dbc.CardHeader("ESG Rating", className="bg-dark text-white text-uppercase font-weight-bold"),
-                        dbc.CardBody(id="card-esg", className="card-text display-6 text-left py-4 font-weight-bold text-success")],
-                        className="shadow-sm h-100"),width=5, lg=2, className="mb-4"),
+                        dbc.CardBody(id="card-esg", className="card-text display-6 text-center py-4 font-weight-bold text-success")],
+                        className="shadow-sm h-100"),width=10, lg=3, className="mb-4"),
                
                 ]
             ),
@@ -175,7 +166,7 @@ main_content = html.Div([
             dbc.Col(
                 dbc.Card([
                     dbc.CardHeader(html.H1("Supplier Health Check :", className="fst-italic text-info text-uppercase tracking-wide mb-3",),
-                                style={"height":"70px","width":"80","padding":"1rem,2rem"}, className="bg-white"),
+                                style={"height":"4rem","width":"80","padding":"1rem,2rem"}, className="bg-white"),
                     dbc.CardBody(id="supplier-table", className="fs-3")
                         ], className="shadow-sm mb-4"),width=7
             ),
@@ -183,11 +174,11 @@ main_content = html.Div([
                 dbc.Card([
                     dbc.CardHeader(
                         html.H1(["Supplier Risk Score : ", html.Span(id="level", className="fst-italic text-danger text-uppercase tracking-wide mb-3")], className="fst-italic text-info text-uppercase tracking-wide mb-3",
-                        style={"height":"70px","width":"60"},),className="bg-white"),
+                        style={"height":"4rem","width":"60"},),className="bg-white"),
                         #html.Span(id="level", className="fst-italic text-primary text-uppercase mb-3"),
                     dbc.CardBody(dcc.Graph(id="risk-gauge"), className= "d-flex flex-column align-items-left"),
                         
-                ], className="shadow-sm mb-4"), width=4  
+                ], className="shadow-sm mb-4"), width=10,lg=5  
             ),
         ])
             ], style=CONTENT_STYLE)
@@ -227,7 +218,7 @@ right_sidebar = html.Div(
             className="mb-4 shadow-sm",
             ),
         html.Img(src="/assets/TRUTH2.png",
-                    style={"height": "300px", "width":"300px", "marginLeft": "5%"},),
+                    style={"height": "auto", "width":"20rem", "marginLeft": "5%"},),
         
         
     ],style=RIGHT_SIDEBAR_STYLE, className="d-flex flex-column justify-content-bottom")
@@ -303,16 +294,14 @@ def update_dashboard(selected_supplier):
                                 xanchor="right",
                                 x=0.75))
     fig_line.add_annotation(
-    x=70,                  # Position on the X-axis (numeric value)
-    y="Jan",             # Position on the Y-axis (categorical label)
-    text="Target = 98%", # The note content
-    #textangle=-90,
-    showarrow=False,        # Set to True to point an arrow at the target coordinate
-    #arrowhead=2,           # Arrow style (1-7)
-    ax=50,                 # X offset for the text box (pixels right)
-    ay=-30,                # Y offset for the text box (pixels up)
+    x=70,                 
+    y="Jan",             
+    text="Target = 98%", 
+    showarrow=False,        
+    ax=50,                 
+    ay=-30,                
     font=dict(size=12, color="white"),
-    bgcolor="#ccb2a5",     # Bootstrap primary blue background
+    bgcolor="#ccb2a5",  
     bordercolor="#ccb2a5",
     borderwidth=2,
     borderpad=4,
@@ -326,7 +315,6 @@ def update_dashboard(selected_supplier):
                             "CAPA": "#d0dfc8",
                           "Deviations":"#4c5d79" })
     
-    #fig_quality.update_yaxes(range=[-1, 6]),
     fig_quality.update_layout(template="plotly_white",
                              legend=dict(
                                 orientation="h",
@@ -342,13 +330,13 @@ def update_dashboard(selected_supplier):
                           "Annual Spend": "#38887b",
                           "Annual Savings":"#374894"})
     fig_cost.add_hline(
-    y=(max(data4["Annual Spend"]) + 500000),  # The target value on the Y-axis
-    line_dash="dot",                     # Style options: 'dash', 'dot', 'dashdot', or 'solid'
-    line_color="#ccb2a5",                 # Eye-catching color (e.g., Crimson Red)
-    line_width=2,                         # Thickness of the line
-    annotation_text="Market Average Baseline",     # Text label for the line
-    annotation_position="bottom right",      # Positions: 'top left', 'top right', 'bottom left', 'bottom right'
-    annotation_font_color="#ccb2a5"       # Match text color with the line color
+    y=(max(data4["Annual Spend"]) + 500000),
+    line_dash="dot",                    
+    line_color="#ccb2a5",                
+    line_width=2,                         
+    annotation_text="Market Average Baseline",   
+    annotation_position="bottom right",      
+    annotation_font_color="#ccb2a5"      
 )
     fig_cost.update_layout(template="plotly_white",
                           legend=dict(
@@ -358,10 +346,8 @@ def update_dashboard(selected_supplier):
                                 xanchor="right",
                                 x=0.75))
     
-    # 4. Table
-    #table=data1.to_dict("records")
     
-    # Build the Bootstrap Table header
+    #Table header
     table_header = [
         html.Thead(html.Tr([
             html.Th("Open INV's ?",className="fs-5 fw-bold"),
@@ -373,7 +359,7 @@ def update_dashboard(selected_supplier):
         ]), className="table-info",)
     ]
     
-    # Build the Bootstrap Table body by iterating over rows
+    #Table body
     table_body = [
         html.Tbody([
             html.Tr([
@@ -387,16 +373,14 @@ def update_dashboard(selected_supplier):
         ])
     ]
     
-    # Combine into a responsive Dash Bootstrap Table
+    # Combine table header and body
     table= dbc.Table(
         table_header + table_body,
         bordered=True,
         striped=False,
         hover=False,
-        #color="primary",
         responsive=True,
         className= "fs-4",
-        #style={"border": "2px solid #ff5733",},
         
     )
     
@@ -406,20 +390,16 @@ def update_dashboard(selected_supplier):
     
     
     # Risk score title &gauge
-    #supplier_info = data2.get(selected_supplier, {"Risk score": 0, "Risk level": "Unknown"})
     score1=data2["Risk score"].item()
     level1=data2["Risk level"]
-    #score1 = supplier_info["Risk score"]
-    #level1 = supplier_info["Risk level"]
     
     # Create the Plotly Gauge Figure
     riskfig = go.Figure(go.Indicator(
         mode="gauge+number",
         value=score1,
-        #title={'text': f"Risk Score: {level1}", 'font': {'size': 24}},
         gauge={
             'axis': {'range':[0,100], 'tickwidth': 1, 'tickcolor': "darkblue"},
-            'bar': {'color': "gray"}, # The needle/pointer color representation
+            'bar': {'color': "gray"}, 
             'bgcolor': "white",
             'borderwidth': 1,
             'bordercolor': "gray",
