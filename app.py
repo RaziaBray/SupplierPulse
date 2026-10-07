@@ -295,7 +295,7 @@ def update_dashboard(selected_supplier):
                                 xanchor="right",
                                 x=0.75),
                                 xaxis=dict(domain=[0.0, 1.0]),
-                                margin=dict(l=10, r=10, t=10, b=10),
+                                margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True )
     fig_line.add_annotation(
     x=70,                 
@@ -327,7 +327,7 @@ def update_dashboard(selected_supplier):
                                 xanchor="right",
                                 x=0.75),
                                 xaxis=dict(domain=[0.0, 1.0]),
-                                margin=dict(l=10, r=10, t=10, b=10),
+                                margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True 
                              )
     
@@ -353,7 +353,7 @@ def update_dashboard(selected_supplier):
                                 xanchor="right",
                                 x=0.75),
                                 xaxis=dict(domain=[0.0, 1.0]),
-                                margin=dict(l=10, r=10, t=10, b=10),
+                                margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True 
                                 )
     

@@ -34,6 +34,6 @@ header, .header, h1 {
 }
 
 /* Force the graph canvas wrapper to stretch completely back across the workspace */
-.js-plotly-plot, .plot-container {
+.js-plotly-plot .plotly, .js-plotly-plot .plotly .main-svg  {
     width: 100% !important;
 }
