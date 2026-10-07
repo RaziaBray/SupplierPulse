@@ -1,18 +1,26 @@
-/* Dynamically shrinks layout elements based on screen real estate */
+/* Lock the foundation to a clean, dense corporate baseline */
 html {
-    font-size: 13px !important;
+    font-size: 12px !important;
 }
 
-/* Forces the sidebar layout container to cap its max expansion */
+/* Force the sidebar to remain slim and tight */
 .sidebar, [class*="sidebar"] {
-    max-width: 280px !important;
-    font-size: 0.95rem !important;
+    width: 220px !important;
+    max-width: 220px !important;
+    padding: 1rem !important;
 }
 
-/* Compresses excessive header pad spacing introduced by the LUX theme */
+/* Flatten the giant header block completely */
 header, .header, h1 {
-    font-size: 1.8rem !important;
-    margin-top: 0.5rem !important;
+    font-size: 1.5rem !important;
+    padding: 0.25rem 1rem !important;
+    margin: 0 !important;
+    height: auto !important;
+}
+
+/* Force your custom layout cards to stay flat rectangles, killing vertical bloat */
+.card, [class*="card"] {
     margin-bottom: 0.5rem !important;
     padding: 0.5rem !important;
+    max-height: fit-content !important;
 }

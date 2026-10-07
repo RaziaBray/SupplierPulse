@@ -116,26 +116,30 @@ main_content = html.Div([
                 dbc.Col(
                     dbc.Card(
                         [dbc.CardHeader("Supplied Materials and Related Product", className="bg-primary text-white text-uppercase font-weight-bold"),
-                        dbc.CardBody(id="card-material")],className="shadow-sm h-100"),width=5, lg=3, className="mb-4"),
+                        dbc.CardBody(id="card-material")],className="shadow-sm h-100"),
+                        xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                 
                 # Card 2: Site Certification
                 dbc.Col(
                     dbc.Card(
                         [dbc.CardHeader("Site Certifications", className="bg-dark text-white text-uppercase font-weight-bold"),
-                        dbc.CardBody(id="card-certifications")],className="shadow-sm h-100"),width=5, lg=3, className="mb-4"),
+                        dbc.CardBody(id="card-certifications")],className="shadow-sm h-100"),
+                        xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                
                 # Card 3: Audit data
                 dbc.Col(
                     dbc.Card(
                         [dbc.CardHeader("Audit info", className="bg-dark text-white text-uppercase font-weight-bold"),
-                        dbc.CardBody(id="card-audit")],className="shadow-sm h-100"),width=5, lg=3, className="mb-4"),
+                        dbc.CardBody(id="card-audit")],className="shadow-sm h-100"),
+                        xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                 
                 # Card 4: ESG Scores
                 dbc.Col(
                     dbc.Card(
                         [dbc.CardHeader("ESG Rating", className="bg-dark text-white text-uppercase font-weight-bold"),
                         dbc.CardBody(id="card-esg", className="card-text display-6 text-center py-4 font-weight-bold text-success")],
-                        className="shadow-sm h-100"),width=10, lg=3, className="mb-4"),
+                        className="shadow-sm h-100"),
+                        xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                
                 ]
             ),
