@@ -166,7 +166,8 @@ main_content = html.Div([
                                                      config={'responsive': True})])
                                                     ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
                                                     style={'height': '100%'}),
-                ]),
+                ],className="g-3 d-flex align-items-stretch mt-3 mb-5"),
+
         dbc.Row(className="mb-3"), #to create white space in layout
     
 #main layout -heading and table for next section
