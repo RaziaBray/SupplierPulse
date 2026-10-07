@@ -73,7 +73,7 @@ header1 =html.Div(
                         options=[{"label": k, "value": k} for k in df2["Name"]],
                         value=df2["Name"][0],
                         clearable=False,
-                    style={"Display":"flex","height": "6rem","width": "25rem","marginRight":"19rem","padding": "2rem 1rem",},), 
+                    style={"Display":"flex","height": "3rem","width": "25rem","marginRight":"19rem","padding": "2rem 1rem",},), 
                 ),
                 ],
             style={
@@ -116,7 +116,7 @@ main_content = html.Div([
                 dbc.Col(
                     dbc.Card(
                         [dbc.CardHeader("Supplied Materials and Related Product", className="bg-primary text-white text-uppercase font-weight-bold"),
-                        dbc.CardBody(id="card-material")],className="shadow-sm h-100"),
+                        dbc.CardBody(id="card-material"),],className="shadow-sm h-100"),
                         xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                 
                 # Card 2: Site Certification
@@ -124,13 +124,13 @@ main_content = html.Div([
                     dbc.Card(
                         [dbc.CardHeader("Site Certifications", className="bg-dark text-white text-uppercase font-weight-bold"),
                         dbc.CardBody(id="card-certifications")],className="shadow-sm h-100"),
-                        xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
+                        xs=12, sm=6, lg=3, style={'padding': '0.6rem'}, className="mb-4"),
                
                 # Card 3: Audit data
                 dbc.Col(
                     dbc.Card(
                         [dbc.CardHeader("Audit info", className="bg-dark text-white text-uppercase font-weight-bold"),
-                        dbc.CardBody(id="card-audit")],className="shadow-sm h-100"),
+                        dbc.CardBody(id="card-audit" )],className="shadow-sm h-100"),
                         xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                 
                 # Card 4: ESG Scores
@@ -139,7 +139,7 @@ main_content = html.Div([
                         [dbc.CardHeader("ESG Rating", className="bg-dark text-white text-uppercase font-weight-bold"),
                         dbc.CardBody(id="card-esg", className="card-text display-6 text-center py-4 font-weight-bold text-success")],
                         className="shadow-sm h-100"),
-                        xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
+                        xs=12, sm=6, lg=3, style={'padding': '0.3rem'}, className="mb-4"),
                
                 ],className="g-2 d-flex align-items-stretch"
             ),
@@ -166,7 +166,7 @@ main_content = html.Div([
                                                      config={'responsive': True})])
                                                     ],className="shadow-sm mb-4"), 
                                                     ),
-                ],className="g-3 d-flex align-items-stretch mt-3 mb-5"),
+                ],className="g-1 d-flex mt-3 mb-5"),
 
         dbc.Row(className="mb-3"), #to create white space in layout
     
