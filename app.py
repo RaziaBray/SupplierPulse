@@ -10,24 +10,21 @@ import dash_bootstrap_components as dbc
 # 1. APP INITIALISATION & CONFIGURATION
 # ==========================================
 
-# We use 'os' to make sure Dash always finds your 'assets' folder perfectly, 
-# even when deployed onto a cloud server later!
 current_dir = os.path.dirname(os.path.abspath(__file__))
 assets_dir = os.path.join(current_dir, "assets")
 
 app = dash.Dash(
     __name__,
     assets_folder=assets_dir,
-    external_stylesheets=[dbc.themes.LUX]  # If you used a specific theme like CERULEAN or DARKLY, change BOOTSTRAP to that!
+    external_stylesheets=[dbc.themes.LUX]
 )
 
-# This exposes the underlying Flask server, which production web hosts require to run your app
 server = app.server 
 
 # ==========================================
 # 2. DATA LOADING & PREPARATION
 # ==========================================
-# PASTE YOUR DATA LOADING CODE HERE! For example:
+
 df2= pd.read_excel("supplier pulse data.ods", engine="odf")
 df3= pd.read_excel("supplier pulse monthly data.ods", engine="odf")
 df4= pd.read_excel("supplier pulse annual data.ods", engine="odf")
@@ -45,16 +42,7 @@ RIGHT_SIDEBAR_STYLE = {
     "padding": "1rem 1rem",
     "background-color": "#d0dfc8",
     "alignItems":"center",
-    #"border-left": "1px solid #f4f6ef",
     "overflow-y": "auto",
-        #"position": "fixed",
-        #"top": 0,
-        #"right": 0,
-        #"bottom": 0,
-        #"width": "15rem",
-        #"padding": "2rem 1rem",
-        #"backgroundColor": "#f8f9fa",
-        #"borderRight": "1px solid #e9ecef"
 }
 
 # Main Content Area Styling
@@ -77,7 +65,7 @@ header1 =html.Div(
                     src="/assets/splogo2.png",
                     style={"height": "6rem", "width":"19rem", "marginRight": "auto"},),
                 
-                # Center: Dropdown
+                # Dropdown
                 html.Div(
                     dcc.Dropdown(
                         id="supplier-dropdown",
@@ -175,7 +163,6 @@ main_content = html.Div([
                     dbc.CardHeader(
                         html.H1(["Supplier Risk Score : ", html.Span(id="level", className="fst-italic text-danger text-uppercase tracking-wide mb-3")], className="fst-italic text-info text-uppercase tracking-wide mb-3",
                         style={"height":"4rem","width":"60"},),className="bg-white"),
-                        #html.Span(id="level", className="fst-italic text-primary text-uppercase mb-3"),
                     dbc.CardBody(dcc.Graph(id="risk-gauge"), className= "d-flex flex-column align-items-left"),
                         
                 ], className="shadow-sm mb-4"), width=10,lg=5  
@@ -189,7 +176,7 @@ right_sidebar = html.Div(
         dbc.Row(className="mb-5"),
         dbc.Row(className="mb-4"),
 
-        #card 1: external news
+        #card 1: supplier news
         dbc.Card(
             [
                 dbc.CardHeader("SUPPLIER NEWS", className="fw-bold bg-primary text-white"),
@@ -257,10 +244,6 @@ app.layout = html.Div([header1, main_content, right_sidebar])
     [Input("supplier-dropdown", "value")]
 )
 def update_dashboard(selected_supplier):
-    #dff = df[df["Supplier"] == selected_supplier]
-    #data1 = df1[selected_supplier]
-    #df1 = pd.DataFrame(SUPPLIER_DATA)
-    #data1 = df1[selected_supplier]
     
     data2 = df2[df2["Name"]==selected_supplier]
     data3 = df3[df3["Name"]==selected_supplier]
@@ -272,10 +255,6 @@ def update_dashboard(selected_supplier):
     
      # Structure lists into neat HTML bullet elements
     materials_list = html.Ul([html.Li(mat) for mat in data2["Materials"]], className="pl-3")
-    
-
-    
-    
     certs_list = html.Ul([html.Li(cert) for cert in data2["Certifications"]], className="pl-3")
     audit_list = html.Ul([html.Li(aud) for aud in data2["Auditing"]], className="pl-3")
     
