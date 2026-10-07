@@ -12,7 +12,7 @@ html {
 
 /* Flatten the giant header block completely */
 header, .header, h1 {
-    font-size: 1.5rem !important;
+    font-size: 4rem !important;
     padding: 0.25rem 1rem !important;
     margin: 0 !important;
     height: auto !important;
@@ -22,5 +22,5 @@ header, .header, h1 {
 .card, [class*="card"] {
     margin-bottom: 0.5rem !important;
     padding: 0.5rem !important;
-    max-height: fit-content !important;
+    /*max-height: fit-content !important;
 }

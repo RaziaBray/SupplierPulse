@@ -141,7 +141,7 @@ main_content = html.Div([
                         className="shadow-sm h-100"),
                         xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                
-                ]
+                ],className="g-2 d-flex align-items-stretch"
             ),
         
 # main layout -charts Row
@@ -174,7 +174,7 @@ main_content = html.Div([
         dbc.Row([
             dbc.Col(
                 dbc.Card([
-                    dbc.CardHeader(html.H1("Supplier Health Check :", className="fst-italic text-info text-uppercase tracking-wide mb-3",),
+                    dbc.CardHeader(html.H2("Supplier Health Check :", className="fst-italic text-info text-uppercase tracking-wide mb-3",),
                                 style={"height":"4rem","width":"80","padding":"1rem,2rem"}, className="bg-white"),
                     dbc.CardBody(id="supplier-table", className="fs-3")
                         ], className="shadow-sm mb-4"),width=7
@@ -182,7 +182,7 @@ main_content = html.Div([
             dbc.Col(
                 dbc.Card([
                     dbc.CardHeader(
-                        html.H1(["Supplier Risk Score : ", html.Span(id="level", className="fst-italic text-danger text-uppercase tracking-wide mb-3")], className="fst-italic text-info text-uppercase tracking-wide mb-3",
+                        html.H2(["Supplier Risk Score : ", html.Span(id="level", className="fst-italic text-danger text-uppercase tracking-wide mb-3")], className="fst-italic text-info text-uppercase tracking-wide mb-3",
                         style={"height":"4rem","width":"60"},),className="bg-white"),
                     dbc.CardBody(dcc.Graph(id="risk-gauge"), className= "d-flex flex-column align-items-left"),
                         
