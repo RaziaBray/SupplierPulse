@@ -16,7 +16,8 @@ assets_dir = os.path.join(current_dir, "assets")
 app = dash.Dash(
     __name__,
     assets_folder=assets_dir,
-    external_stylesheets=[dbc.themes.LUX]
+    external_stylesheets=[dbc.themes.LUX],
+    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}]
 )
 
 server = app.server 
@@ -62,7 +63,7 @@ header1 =html.Div(
             [
                 # Left: Logo
                 html.Img(
-                    src="/assets/splogo2.png",
+                    src="/assets/Splogo2.png",
                     style={"height": "6rem", "width":"19rem", "marginRight": "auto"},),
                 
                 # Dropdown
@@ -204,7 +205,7 @@ right_sidebar = html.Div(
             ],
             className="mb-4 shadow-sm",
             ),
-        html.Img(src="/assets/TRUTH2.png",
+        html.Img(src="/assets/Truth2.png",
                     style={"height": "auto", "width":"20rem", "marginLeft": "5%"},),
         
         
@@ -269,9 +270,11 @@ def update_dashboard(selected_supplier):
                           legend=dict(
                                 orientation="h",
                                 yanchor="bottom",
-                                y=1.02,
+                                y=-0.3,
                                 xanchor="right",
-                                x=0.75))
+                                x=0.75),
+                                margin=dict(l=20, r=20, t=30, b=20),
+                                autosize=True )
     fig_line.add_annotation(
     x=70,                 
     y="Jan",             
@@ -298,9 +301,11 @@ def update_dashboard(selected_supplier):
                              legend=dict(
                                 orientation="h",
                                 yanchor="bottom",
-                                y=1.02,
+                                y=-0.3,
                                 xanchor="right",
-                                x=1.08)
+                                x=0.75),
+                                margin=dict(l=20, r=20, t=30, b=20),
+                                autosize=True 
                              )
     
     # 3. Procurement Performance (Savings)
@@ -321,9 +326,12 @@ def update_dashboard(selected_supplier):
                           legend=dict(
                                 orientation="h",
                                 yanchor="bottom",
-                                y=1.04,
+                                y=-0.25,
                                 xanchor="right",
-                                x=0.75))
+                                x=0.75),
+                                margin=dict(l=20, r=20, t=30, b=20),
+                                autosize=True 
+                                )
     
     
     #Table header
