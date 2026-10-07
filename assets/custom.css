@@ -24,3 +24,16 @@ header, .header, h1 {
     padding: 0.6rem !important;  
     max-height: fit-content !important;
 }
+
+
+/*forces the cardbody to be read correctly*/
+.card-body, [class*="card-body"] {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Force the graph canvas wrapper to stretch completely back across the workspace */
+.js-plotly-plot, .plot-container {
+    width: 100% !important;
+}
