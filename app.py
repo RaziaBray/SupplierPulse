@@ -147,9 +147,25 @@ main_content = html.Div([
 # main layout -charts Row
 
         dbc.Row([
-            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-quality")])], className="shadow-sm mb-4"), width=4),
-            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="line-quantity")])], className="shadow-sm mb-4"), width=4),
-            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-cost")])], className="shadow-sm mb-5"), width=4),
+            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-quality", 
+                                                      style={'height': '100%', 'width': '100%'},
+                                                      config={'responsive': True})])
+                                                      ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
+                                                      style={'height': '100%'}),
+
+
+            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="line-quantity",
+                                                      style={'height': '100%', 'width': '100%'},
+                                                     config={'responsive': True})])
+                                                    ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
+                                                    style={'height': '100%'}),
+
+
+            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-cost",
+                                                      style={'height': '100%', 'width': '100%'},
+                                                     config={'responsive': True})])
+                                                    ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
+                                                    style={'height': '100%'}),
                 ]),
         dbc.Row(className="mb-3"), #to create white space in layout
     
