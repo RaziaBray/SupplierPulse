@@ -1,6 +1,6 @@
 /* Lock the foundation to a clean, dense corporate baseline */
 html {
-    font-size: 14px !important;
+    font-size: 10px !important;
 }
 
 /* Force the sidebar to remain slim and tight */
@@ -20,7 +20,7 @@ header, .header, h1 {
 
 /* Force your custom layout cards to stay flat rectangles, killing vertical bloat */
 .card, [class*="card"] {
-    margin-bottom: 0.5rem !important;
-    padding: 0.5rem !important;  
+    margin-bottom: 0.6rem !important;
+    padding: 0.6rem !important;  
     max-height: fit-content !important;
 }

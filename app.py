@@ -148,24 +148,24 @@ main_content = html.Div([
 
         dbc.Row([
             dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-quality", 
-                                                      style={'height': '100%', 'width': 'auto'},
+                                                      style={'height': '100%', 'width': '100%'},
                                                       config={'responsive': True})])
-                                                      ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
-                                                      style={'height': '100%'}),
+                                                      ],className="shadow-sm mb-4"), 
+                                                      ),
 
 
             dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="line-quantity",
-                                                      style={'height': '100%', 'width': 'auto'},
+                                                      style={'height': '100%', 'width': '100%'},
                                                      config={'responsive': True})])
-                                                    ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
-                                                    style={'height': '100%'}),
+                                                    ],className="shadow-sm mb-4"), 
+                                                    ),
 
 
             dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-cost",
-                                                      style={'height': '100%', 'width': 'auto'},
+                                                      style={'height': '100%', 'width': '100%'},
                                                      config={'responsive': True})])
-                                                    ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
-                                                    style={'height': '100%'}),
+                                                    ],className="shadow-sm mb-4"), 
+                                                    ),
                 ],className="g-3 d-flex align-items-stretch mt-3 mb-5"),
 
         dbc.Row(className="mb-3"), #to create white space in layout
@@ -294,7 +294,7 @@ def update_dashboard(selected_supplier):
                                 y=-0.3,
                                 xanchor="right",
                                 x=0.75),
-                                margin=dict(l=20, r=20, t=30, b=20),
+                                margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True )
     fig_line.add_annotation(
     x=70,                 
@@ -325,7 +325,7 @@ def update_dashboard(selected_supplier):
                                 y=-0.3,
                                 xanchor="right",
                                 x=0.75),
-                                margin=dict(l=20, r=20, t=30, b=20),
+                                margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True 
                              )
     
@@ -350,7 +350,7 @@ def update_dashboard(selected_supplier):
                                 y=-0.25,
                                 xanchor="right",
                                 x=0.75),
-                                margin=dict(l=20, r=20, t=30, b=20),
+                                margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True 
                                 )
     
