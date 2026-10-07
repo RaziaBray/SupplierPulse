@@ -148,21 +148,21 @@ main_content = html.Div([
 
         dbc.Row([
             dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-quality", 
-                                                      style={'height': '100%', 'width': '100%'},
+                                                      style={'height': '100%', 'width': 'auto'},
                                                       config={'responsive': True})])
                                                       ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
                                                       style={'height': '100%'}),
 
 
             dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="line-quantity",
-                                                      style={'height': '100%', 'width': '100%'},
+                                                      style={'height': '100%', 'width': 'auto'},
                                                      config={'responsive': True})])
                                                     ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
                                                     style={'height': '100%'}),
 
 
             dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-cost",
-                                                      style={'height': '100%', 'width': '100%'},
+                                                      style={'height': '100%', 'width': 'auto'},
                                                      config={'responsive': True})])
                                                     ],style={'padding': '0.5rem'},className="shadow-sm mb-4"), 
                                                     style={'height': '100%'}),
