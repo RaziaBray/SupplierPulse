@@ -124,7 +124,7 @@ main_content = html.Div([
                     dbc.Card(
                         [dbc.CardHeader("Site Certifications", className="bg-dark text-white text-uppercase font-weight-bold"),
                         dbc.CardBody(id="card-certifications")],className="shadow-sm h-100"),
-                        xs=12, sm=6, lg=3, style={'padding': '0.6rem'}, className="mb-4"),
+                        xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                
                 # Card 3: Audit data
                 dbc.Col(
@@ -139,7 +139,7 @@ main_content = html.Div([
                         [dbc.CardHeader("ESG Rating", className="bg-dark text-white text-uppercase font-weight-bold"),
                         dbc.CardBody(id="card-esg", className="card-text display-6 text-center py-4 font-weight-bold text-success")],
                         className="shadow-sm h-100"),
-                        xs=12, sm=6, lg=3, style={'padding': '0.3rem'}, className="mb-4"),
+                        xs=12, sm=6, lg=3, style={'padding': '0.5rem'}, className="mb-4"),
                
                 ],className="g-2 d-flex align-items-stretch"
             ),
@@ -154,6 +154,7 @@ main_content = html.Div([
                                                     color="primary",type="border", fullscreen=False)
                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
                                                     ],className="shadow-sm mb-4"), 
+                                                    style={'flex-shrink': '0', 'flex-grow': '1', 'min-width': '0'},
                                                     md=4, sm=12),
 
 
@@ -163,7 +164,8 @@ main_content = html.Div([
                                                     config={'responsive': True}),
                                                     color="primary", type="border", fullscreen=False)
                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
-                                                    ],className="shadow-sm mb-4"), 
+                                                    ],className="shadow-sm mb-4"),
+                                                    style={'flex-shrink': '0', 'flex-grow': '1', 'min-width': '0'},
                                                     md=4, sm=12),
 
 
@@ -173,7 +175,8 @@ main_content = html.Div([
                                                      config={'responsive': True})
                                                      ,color="primary", type="border", fullscreen=False),]
                                                      ,style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'}),
-                                                    ],className="shadow-sm mb-4"), 
+                                                    ],className="shadow-sm mb-4"),
+                                                    style={'flex-shrink': '0', 'flex-grow': '1', 'min-width': '0'}, 
                                                     md=4, sm=12)
                 ],className="g-1 d-flex mt-3 mb-5"),
 
@@ -303,7 +306,8 @@ def update_dashboard(selected_supplier):
                                 y=-0.3,
                                 xanchor="right",
                                 x=0.75),
-                                xaxis=dict(domain=[0.0, 1.0]),
+                                xaxis=dict(automargin=True),
+                                yaxis=dict(automargin=True),
                                 margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True )
     fig_line.add_annotation(
@@ -335,7 +339,8 @@ def update_dashboard(selected_supplier):
                                 y=-0.3,
                                 xanchor="right",
                                 x=0.75),
-                                xaxis=dict(domain=[0.0, 1.0]),
+                                xaxis=dict(automargin=True),
+                                yaxis=dict(automargin=True),
                                 margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True 
                              )
@@ -361,7 +366,8 @@ def update_dashboard(selected_supplier):
                                 y=-0.25,
                                 xanchor="right",
                                 x=0.75),
-                                xaxis=dict(domain=[0.0, 1.0]),
+                                xaxis=dict(automargin=True),
+                                yaxis=dict(automargin=True),
                                 margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True 
                                 )
