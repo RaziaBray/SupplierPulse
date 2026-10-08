@@ -39,10 +39,16 @@ header, .header, h1 {
 .main-svg
 {
     width: 100% !important;
+    height: 100% !important;
     display: block !important;
 }
 
 .draglayer
+{
+    width: 100% !important;
+}
+
+.main-svg rect.bg
 {
     width: 100% !important;
 }
