@@ -176,7 +176,7 @@ main_content = html.Div([
                                                      ,color="primary", type="border", fullscreen=False),]
                                                      ,style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'}),
                                                     ],className="shadow-sm mb-4"),
-                                                    style={'flex-shrink': '0', 'flex-grow': '1', 'min-width': '0'}, 
+                                                    style={'min-width': '0'}, 
                                                     md=4, sm=12)
                 ],className="g-1 d-flex mt-3 mb-5"),
 
