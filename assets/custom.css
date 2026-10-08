@@ -33,13 +33,39 @@ header, .header, h1 {
     height: 100% !important;
 }
 
-/* Force the graph canvas wrapper to stretch completely back across the workspace */
-.js-plotly-plot .plotly, .js-plotly-plot .plotly .main-svg  {
+.dash-graph,
+.js-plotly-plot,
+.plot-container,
+.main-svg
+{
     width: 100% !important;
-}
-/* Keeps the chart container rigidly expanded to its Bootstrap column width */
-.dash-graph {
-    width: 100% !important;
-    min-width: 100% !important;
     display: block !important;
 }
+
+.draglayer
+{
+    width: 100% !important;
+}
+
+/* Force the graph canvas wrapper to stretch completely back across the workspace 
+.js-plotly-plot .plotly, .js-plotly-plot .plotly .main-svg,
+.js-plotly-plot .plot-container, 
+.js-plotly-plot .svg-container  
+{
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+}*/
+/* Keeps the chart container rigidly expanded to its Bootstrap column width 
+.dash-graph {
+    width: 100% !important;
+    min-width:0 !important;
+    display: block !important;
+}*/
+
+/*Force the outer Dash graph component to stay completely fluid */
+/*.dash-graph, div[id^="your-graph"] {
+    width: 100% !important;
+    min-width: 0 !important; 
+    display: block !important;
+}*/
