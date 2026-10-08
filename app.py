@@ -147,26 +147,32 @@ main_content = html.Div([
 # main layout -charts Row
 
         dbc.Row([
-            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-quality", 
-                                                      style={'height': '100%', 'width': '100%'},
-                                                      config={'responsive': True})
-                                                      ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
-                                                      ],className="shadow-sm mb-4"), 
-                                                      md=4, sm=12),
-
-
-            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="line-quantity",
-                                                      style={'height': '100%', 'width': '100%'},
-                                                     config={'responsive': True})
-                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
+            dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner
+                                            (dcc.Graph(id="bar-quality", 
+                                                    style={'height': '100%', 'width': '100%'},
+                                                    config={'responsive': True}),
+                                                    color="primary",type="border", fullscreen=False)
+                                                    ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
                                                     ],className="shadow-sm mb-4"), 
                                                     md=4, sm=12),
 
 
-            dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-cost",
+            dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner(
+                                            dcc.Graph(id="line-quantity",
+                                                    style={'height': '100%', 'width': '100%'},
+                                                    config={'responsive': True}),
+                                                    color="primary", type="border", fullscreen=False)
+                                                    ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
+                                                    ],className="shadow-sm mb-4"), 
+                                                    md=4, sm=12),
+
+
+            dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner(
+                                            dcc.Graph(id="bar-cost",
                                                       style={'height': '100%', 'width': '100%'},
                                                      config={'responsive': True})
-                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
+                                                     ,color="primary", type="border", fullscreen=False),]
+                                                     ,style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'}),
                                                     ],className="shadow-sm mb-4"), 
                                                     md=4, sm=12)
                 ],className="g-1 d-flex mt-3 mb-5"),
