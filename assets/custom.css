@@ -37,3 +37,9 @@ header, .header, h1 {
 .js-plotly-plot .plotly, .js-plotly-plot .plotly .main-svg  {
     width: 100% !important;
 }
+/* Keeps the chart container rigidly expanded to its Bootstrap column width */
+.dash-graph {
+    width: 100% !important;
+    min-width: 100% !important;
+    display: block !important;
+}

@@ -152,7 +152,7 @@ main_content = html.Div([
                                                       config={'responsive': True})
                                                       ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
                                                       ],className="shadow-sm mb-4"), 
-                                                      ),
+                                                      md=4, sm=12),
 
 
             dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="line-quantity",
@@ -160,7 +160,7 @@ main_content = html.Div([
                                                      config={'responsive': True})
                                                      ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
                                                     ],className="shadow-sm mb-4"), 
-                                                    ),
+                                                    md=4, sm=12),
 
 
             dbc.Col(dbc.Card([dbc.CardBody([dcc.Graph(id="bar-cost",
@@ -168,7 +168,7 @@ main_content = html.Div([
                                                      config={'responsive': True})
                                                      ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
                                                     ],className="shadow-sm mb-4"), 
-                                                    ),
+                                                    md=4, sm=12)
                 ],className="g-1 d-flex mt-3 mb-5"),
 
         dbc.Row(className="mb-3"), #to create white space in layout
