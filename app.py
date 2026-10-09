@@ -172,9 +172,9 @@ main_content = html.Div([
             dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner(
                                             dcc.Graph(id="bar-cost",
                                                       style={'height': '100%', 'width': '100%'},
-                                                     config={'responsive': True})
-                                                     ,color="primary", type="border", fullscreen=False),]
-                                                     ,style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'}),
+                                                     config={'responsive': True}),
+                                                     color="primary", type="border", fullscreen=False),],
+                                                     style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'}),
                                                     ],className="shadow-sm mb-4 p-1"),
                                                     style={'flex-shrink': '0', 'flex-grow': '1','min-width': '0'}, 
                                                     md=4, sm=12,lg=4)
@@ -308,7 +308,7 @@ def update_dashboard(selected_supplier):
                                 x=0.75),
                                 xaxis=dict(automargin=True),
                                 yaxis=dict(automargin=True),
-                                margin=dict(l=5, r=5, t=30, b=10),
+                                margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True )
     fig_line.add_annotation(
     x=70,                 
@@ -341,12 +341,13 @@ def update_dashboard(selected_supplier):
                                 x=0.75),
                                 xaxis=dict(automargin=True),
                                 yaxis=dict(automargin=True),
-                                margin=dict(l=5, r=5, t=30, b=10),
+                                margin=dict(l=10, r=10, t=30, b=10),
                                 autosize=True 
                              )
     
     # 3. Procurement Performance (Savings)
-    fig_cost = px.bar(data4, x="Year", y=["Annual Savings", "Annual Spend"],barmode="overlay", text_auto="True", title="<b>Cost Saving via Cost Avoidance/Strategic Saving</b>",
+    fig_cost = px.bar(data4, x="Year", y=["Annual Savings", "Annual Spend"],barmode="overlay", text_auto="True", 
+                      title="<b>Cost Saving via Cost Avoidance/Strategic Saving</b>",
                       color_discrete_map={
                           "Annual Spend": "#38887b",
                           "Annual Savings":"#374894"})
@@ -368,8 +369,9 @@ def update_dashboard(selected_supplier):
                                 x=0.75),
                                 xaxis=dict(automargin=True),
                                 yaxis=dict(automargin=True),
-                                margin=dict(l=5, r=5, t=30, b=10),
-                                autosize=True 
+                                margin=dict(l=10, r=10, t=30, b=10),
+                                autosize=True,
+                                title={'font': {'size': 14},'x': 0.02,'xanchor': 'left'} 
                                 )
     
     
