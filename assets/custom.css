@@ -5,8 +5,8 @@ html {
 
 /* Force the sidebar to remain slim and tight */
 .sidebar, [class*="sidebar"] {
-    width: 220px !important;
-    max-width: 220px !important;
+    width: 20rem !important;
+    max-width: 20rem !important;
     padding: 1rem !important;
 }
 
@@ -32,7 +32,7 @@ header, .header, h1 {
     width: 100% !important;
     height: 100% !important;
 }
-
+/*
 .dash-graph,
 .js-plotly-plot,
 .plot-container,

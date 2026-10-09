@@ -155,7 +155,7 @@ main_content = html.Div([
                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
                                                     ],className="shadow-sm mb-4"), 
                                                     style={'flex-shrink': '0', 'flex-grow': '1', 'min-width': '0'},
-                                                    md=4, sm=12),
+                                                    md=4, sm=12, lg=4),
 
 
             dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner(
@@ -166,7 +166,7 @@ main_content = html.Div([
                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
                                                     ],className="shadow-sm mb-4"),
                                                     style={'flex-shrink': '0', 'flex-grow': '1', 'min-width': '0'},
-                                                    md=4, sm=12),
+                                                    md=4, sm=12,lg=4),
 
 
             dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner(
@@ -177,7 +177,7 @@ main_content = html.Div([
                                                      ,style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'}),
                                                     ],className="shadow-sm mb-4"),
                                                     style={'min-width': '0'}, 
-                                                    md=4, sm=12)
+                                                    md=4, sm=12,lg=4)
                 ],className="g-1 d-flex mt-3 mb-5"),
 
         dbc.Row(className="mb-3"), #to create white space in layout
