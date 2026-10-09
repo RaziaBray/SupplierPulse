@@ -153,7 +153,7 @@ main_content = html.Div([
                                                     config={'responsive': True}),
                                                     color="primary",type="border", fullscreen=False)
                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
-                                                    ],className="shadow-sm mb-4"), 
+                                                    ],className="shadow-sm mb-4 p-1"), 
                                                     style={'flex-shrink': '0', 'flex-grow': '1', 'min-width': '0'},
                                                     md=4, sm=12, lg=4),
 
@@ -164,7 +164,7 @@ main_content = html.Div([
                                                     config={'responsive': True}),
                                                     color="primary", type="border", fullscreen=False)
                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
-                                                    ],className="shadow-sm mb-4"),
+                                                    ],className="shadow-sm mb-4 p-1"),
                                                     style={'flex-shrink': '0', 'flex-grow': '1', 'min-width': '0'},
                                                     md=4, sm=12,lg=4),
 
@@ -175,7 +175,7 @@ main_content = html.Div([
                                                      config={'responsive': True})
                                                      ,color="primary", type="border", fullscreen=False),]
                                                      ,style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'}),
-                                                    ],className="shadow-sm mb-4"),
+                                                    ],className="shadow-sm mb-4 p-1"),
                                                     style={'flex-shrink': '0', 'flex-grow': '1','min-width': '0'}, 
                                                     md=4, sm=12,lg=4)
                 ],className="g-1 d-flex mt-3 mb-5"),
@@ -308,7 +308,7 @@ def update_dashboard(selected_supplier):
                                 x=0.75),
                                 xaxis=dict(automargin=True),
                                 yaxis=dict(automargin=True),
-                                margin=dict(l=10, r=10, t=30, b=10),
+                                margin=dict(l=5, r=5, t=30, b=10),
                                 autosize=True )
     fig_line.add_annotation(
     x=70,                 
@@ -341,7 +341,7 @@ def update_dashboard(selected_supplier):
                                 x=0.75),
                                 xaxis=dict(automargin=True),
                                 yaxis=dict(automargin=True),
-                                margin=dict(l=10, r=10, t=30, b=10),
+                                margin=dict(l=5, r=5, t=30, b=10),
                                 autosize=True 
                              )
     
@@ -368,7 +368,7 @@ def update_dashboard(selected_supplier):
                                 x=0.75),
                                 xaxis=dict(automargin=True),
                                 yaxis=dict(automargin=True),
-                                margin=dict(l=10, r=10, t=30, b=10),
+                                margin=dict(l=5, r=5, t=30, b=10),
                                 autosize=True 
                                 )
     
