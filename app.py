@@ -17,7 +17,12 @@ app = dash.Dash(
     __name__,
     assets_folder=assets_dir,
     external_stylesheets=[dbc.themes.LUX],
-    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}]
+    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
+    external_scripts=[
+        {
+            'src': 'data:text/javascript,setTimeout(function(){ window.dispatchEvent(new Event("resize")); }, 500);'
+        }
+    ]
 )
 
 server = app.server 
