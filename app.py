@@ -17,7 +17,7 @@ app = dash.Dash(
     __name__,
     assets_folder=assets_dir,
     external_stylesheets=[dbc.themes.LUX],
-    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
+    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1,maximum-scale=1.0, shrink-to-fit=no"}],
     external_scripts=[
         {
             'src': 'data:text/javascript,setTimeout(function(){ window.dispatchEvent(new Event("resize")); }, 500);'
@@ -100,7 +100,7 @@ main_content = html.Div([
                        ),                    
                        
                 ],className="align-items-left g-0"),
-                ],style={"display":"flex","marginLeft":"1rem", "width":"100%",}),
+                #],style={"display":"flex","marginLeft":"1rem", "width":"100%",}),
 
                 
             dbc.Row(           
@@ -206,7 +206,8 @@ main_content = html.Div([
                         
                 ], className="shadow-sm mb-4"), width=10,lg=5  
             ),
-        ])
+        ]),
+        ],fluid=True),
             ], style=CONTENT_STYLE)
 
 #right sidebar
