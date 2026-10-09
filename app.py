@@ -154,7 +154,7 @@ main_content = html.Div([
         dbc.Row([
             dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner
                                             (dcc.Graph(id="bar-quality", 
-                                                    style={'height': '100%', 'width': '100%'},
+                                                    style={'width': '100%', 'display':'block'},
                                                     config={'responsive': True}),
                                                     color="primary",type="border", fullscreen=False)
                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
@@ -165,7 +165,7 @@ main_content = html.Div([
 
             dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner(
                                             dcc.Graph(id="line-quantity",
-                                                    style={'height': '100%', 'width': '100%'},
+                                                    style={'width': '100%','display':'block'},
                                                     config={'responsive': True}),
                                                     color="primary", type="border", fullscreen=False)
                                                     ],style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'})
@@ -176,7 +176,7 @@ main_content = html.Div([
 
             dbc.Col(dbc.Card([dbc.CardBody([dbc.Spinner(
                                             dcc.Graph(id="bar-cost",
-                                                      style={'height': '100%', 'width': '100%'},
+                                                      style={'width': '100%', 'display':'block'},
                                                      config={'responsive': True}),
                                                      color="primary", type="border", fullscreen=False),],
                                                      style={'display': 'flex', 'flexDirection': 'column', 'width': '100%'}),
