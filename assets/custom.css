@@ -1,16 +1,16 @@
-/* Lock the foundation to a clean, dense corporate baseline */
+/* Lock the foundation to a clean, dense corporate baseline 
 html {
     font-size: 10px !important;
 }
 
-/* Force the sidebar to remain slim and tight */
+/* Force the sidebar to remain slim and tight 
 .sidebar, [class*="sidebar"] {
     width: 20rem !important;
     max-width: 20rem !important;
     padding: 1rem !important;
 }
 
-/* Flatten the giant header block completely */
+/* Flatten the giant header block completely 
 header, .header, h1 {
     font-size: 3.5rem !important;
     padding: 0.25rem 1rem !important;
@@ -18,7 +18,7 @@ header, .header, h1 {
     height: auto !important;
 }
 
-/* Force your custom layout cards to stay flat rectangles, killing vertical bloat */
+/* Force your custom layout cards to stay flat rectangles, killing vertical bloat 
 .card, [class*="card"] {
     margin-bottom: 0.6rem !important;
     padding: 0.6rem !important;  
@@ -26,14 +26,14 @@ header, .header, h1 {
 }
 
 
-/*forces the cardbody to be read correctly*/
+/*forces the cardbody to be read correctly
 .card-body, [class*="card-body"] {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
 }
 
-/* Force the absolute outer wrappers */
+/* Force the absolute outer wrappers 
 .dash-graph, 
 .js-plotly-plot, 
 .plot-container, 
@@ -48,7 +48,7 @@ header, .header, h1 {
 .js-plotly-plot, .plot-container {
     width: 100% !important;
 }*/
-
+/*
 .svg-container {
     width: 100% !important;
 }
