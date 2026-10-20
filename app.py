@@ -64,11 +64,12 @@ RIGHT_SIDEBAR_STYLE = {
 CONTENT_STYLE = {
     "margin-left": "1rem",
     "margin-right": "20rem",
-    "margin-top": "2rem",
+    "margin-top": "1rem",
     "padding": "2rem 1rem",
 }
 
 header_style = {
+    "top":0,
     "background": "linear-gradient(to right, #92b282,#92b282,#d0dfc8, #d0dfc8)",
     "display": "flex",
 }
@@ -464,7 +465,7 @@ app.layout = dbc.Container(
         header,
         dbc.Row([main_content, sidebar]),
     ],
-    fluid=True, className="dbc p-4"
+    fluid=True, className="dbc p-0"
 )
 
 # ==========================================

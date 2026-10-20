@@ -1,6 +1,6 @@
 :root {
     /* Scale down the base typography size */
-    font-size: 14px !important; 
+    font-size: 10px !important; 
     
     /* Lux theme comes with heavy padding; this pulls it back to standard spacing */
     --bs-body-font-size: 0.875rem;
