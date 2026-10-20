@@ -11,13 +11,16 @@ from dash import Input, Output, dcc, html
 # 1. APP INITIALISATION & CONFIGURATION
 # ==========================================
 
+#fixes scaling issues across bootstrap
+dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 assets_dir = os.path.join(current_dir, "assets")
 
 app = dash.Dash(
     __name__,
     assets_folder=assets_dir,
-    external_stylesheets=[dbc.themes.LUX],
+    external_stylesheets=[dbc.themes.LUX, dbc_css],
     meta_tags=[
         {
             "name": "viewport",
@@ -234,7 +237,7 @@ card_row = dbc.Row(
                 ],
                 className="shadow-sm h-100",
             ),
-            xs=12,
+            xs=8,
             sm=6,
             lg=3,
             style={"padding": "0.5rem"},
@@ -252,7 +255,7 @@ card_row = dbc.Row(
                 ],
                 className="shadow-sm h-100",
             ),
-            xs=12,
+            xs=8,
             sm=6,
             lg=3,
             style={"padding": "0.5rem"},
@@ -270,7 +273,7 @@ card_row = dbc.Row(
                 ],
                 className="shadow-sm h-100",
             ),
-            xs=12,
+            xs=8,
             sm=6,
             lg=4,
             style={"padding": "0.5rem"},
@@ -291,8 +294,8 @@ card_row = dbc.Row(
                 ],
                 className="shadow-sm h-100",
             ),
-            xs=12,
-            sm=6,
+            xs=8,
+            sm=4,
             lg=2,
             style={"padding": "0.5rem"},
             className="mb-3",
@@ -461,7 +464,7 @@ app.layout = dbc.Container(
         header,
         dbc.Row([main_content, sidebar]),
     ],
-    fluid=True,
+    fluid=True, className="dbc p-4"
 )
 
 # ==========================================
