@@ -1,4 +1,23 @@
-/* Lock the foundation to a clean, dense corporate baseline */
+:root {
+    /* Scale down the base typography size */
+    font-size: 14px !important; 
+    
+    /* Lux theme comes with heavy padding; this pulls it back to standard spacing */
+    --bs-body-font-size: 0.875rem;
+    --bs-headings-margin-bottom: 0.5rem;
+}
+
+/* Force Plotly graphs to stop expanding awkwardly */
+.js-plotly-plot .plotly .main-svg {
+    max-width: 100%;
+}
+
+
+
+
+
+
+/* Lock the foundation to a clean, dense corporate baseline 
 html {
     font-size: 10px !important;
 }
