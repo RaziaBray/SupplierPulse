@@ -55,9 +55,9 @@ RIGHT_SIDEBAR_STYLE = {
     "bottom": 0,
     "width": "20rem",
     "padding": "1rem 1rem",
-    "background-color": "#d0dfc8",
+    "backgroundColor": "#d0dfc8",
     "alignItems": "center",
-    "overflow-y": "auto",
+    "overflowY": "auto",
 }
 
 # Main Content Area Styling
@@ -172,7 +172,7 @@ title_row = dbc.Row(
         dbc.Col(
             children=html.Img(
                 src="/assets/factory.png",
-                style={"width": "3rem", "height": "3rem", "object-fit": "cover"},
+                style={"width": "3rem", "height": "3rem", "objectFit": "cover"},
             ),
             width="auto",
             className="pe-2",
@@ -316,7 +316,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-quality",
-                                    style={"width": "100%", "display": "block"},
+                                    style={"height":"315","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
@@ -333,7 +333,7 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            style={"flex-shrink": "0", "flex-grow": "1", "min-width": "0"},
+            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
@@ -347,7 +347,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="line-quantity",
-                                    style={"width": "100%", "display": "block"},
+                                    style={"height":"315","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
@@ -364,7 +364,7 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            style={"flex-shrink": "0", "flex-grow": "1", "min-width": "0"},
+            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
@@ -378,7 +378,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-cost",
-                                    style={"width": "100%", "display": "block"},
+                                    style={"height":"315","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
@@ -395,7 +395,7 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            style={"flex-shrink": "0", "flex-grow": "1", "min-width": "0"},
+            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
@@ -465,7 +465,7 @@ app.layout = dbc.Container(
         header,
         dbc.Row([main_content, sidebar]),
     ],
-    fluid=True, className="dbc p-0"
+    fluid=True, className="dbc"
 )
 
 # ==========================================
@@ -526,7 +526,7 @@ def update_dashboard(selected_supplier):
         y="Month",
         barmode="group",
         orientation="h",
-        text_auto="True",
+        text_auto="true",
         title="<b>Delivery Performance </b>",
         color_discrete_map={"OTIF": "#5ea4ad", "Lead time adherence": "#c5d9e2"},
     )
@@ -566,7 +566,7 @@ def update_dashboard(selected_supplier):
         x="Month",
         y=["INV", "CAPA", "Deviations"],
         barmode="stack",
-        text_auto="True",
+        text_auto="true",
         title="<b>Quality Performance </b>",
         color_discrete_map={
             "INV": "#a3c7dc",
@@ -590,7 +590,7 @@ def update_dashboard(selected_supplier):
         x="Year",
         y=["Annual Savings", "Annual Spend"],
         barmode="overlay",
-        text_auto="True",
+        text_auto="true",
         title="<b>Cost Saving via Cost Avoidance/Strategic Saving</b>",
         color_discrete_map={"Annual Spend": "#38887b", "Annual Savings": "#374894"},
     )
