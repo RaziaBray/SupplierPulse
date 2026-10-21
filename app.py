@@ -5,7 +5,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from dash import Input, Output, dcc, html
+from dash import Input, Output, clientside_callback, dcc, html
 
 # ==========================================
 # 1. APP INITIALISATION & CONFIGURATION
@@ -710,6 +710,30 @@ def update_dashboard(selected_supplier):
         level1,
         riskfig,
     )
+
+# Clientside Callback to force-resize Plotly charts after they load
+clientside_callback(
+    """
+    function(fig1, fig2, fig3) {
+        // Trigger a fake window resize event 150 milliseconds after 
+        // the figures load, giving Render's styling time to finish mounting.
+        setTimeout(function() {
+            window.dispatchEvent(new Event('resize'));
+        }, 150);
+        
+        // This ensures the callback finishes without altering any component properties
+        return window.dash_clientside.no_update;
+    }
+    """,
+    # We output to a dummy property ('id') of one of your graphs just to satisfy Dash syntax
+    Output('bar-quality', 'id'),  
+    # This watches all three bar charts. As soon as they load or change, the resize fires.
+    Input('bar-quality', 'figure'),
+    Input('bar-cost', 'figure'),
+    Input('line-quantity', 'figure'),
+    prevent_initial_call=False
+)
+
 
 
 # ==========================================
