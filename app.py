@@ -26,13 +26,7 @@ app = dash.Dash(
             "name": "viewport",
             "content": "width=device-width, initial-scale=1,maximum-scale=1.0, shrink-to-fit=no",
         }
-    ],
-    external_scripts=[
-        {
-            "src": 'data:text/javascript,setTimeout(function(){ window.dispatchEvent(new Event("resize")); }, 500);'
-        }
-    ],
-)
+    ])
 
 server = app.server
 
@@ -316,7 +310,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-quality",
-                                    style={"height":"315","width": "450", "display": "block"},
+                                    #style={"height":"315","width":"100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
@@ -333,7 +327,7 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
+            #style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
@@ -347,7 +341,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="line-quantity",
-                                    style={"height":"315","width": "450", "display": "block"},
+                                    #style={"height":"315","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
@@ -364,7 +358,7 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
+            #style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
@@ -378,7 +372,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-cost",
-                                    style={"height":"315","width": "450", "display": "block"},
+                                    #style={"height":"315","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
@@ -395,7 +389,7 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
+            #style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,

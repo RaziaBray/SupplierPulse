@@ -7,7 +7,7 @@
     --bs-headings-margin-bottom: 0.5rem;
 }
 
-/* Force Plotly graphs to stop expanding awkwardly */
+/* Force Plotly graphs to stop expanding awkwardly 
 .js-plotly-plot .plotly .main-svg {
     max-width: 100%;
 }
