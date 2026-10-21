@@ -1,13 +1,13 @@
 :root {
     /* Scale down the base typography size */
-    font-size: 11px !important; 
+    font-size: 10px !important; 
     
     /* Lux theme comes with heavy padding; this pulls it back to standard spacing */
     --bs-body-font-size: 0.875rem;
     --bs-headings-margin-bottom: 0.5rem;
 }
 
-/* Force Plotly graphs to stop expanding awkwardly 
+/* Force Plotly graphs to stop expanding awkwardly*/ 
 .js-plotly-plot .plotly .main-svg {
     max-width: 100%;
 }
