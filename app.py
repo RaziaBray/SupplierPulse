@@ -90,7 +90,7 @@ header = dbc.Row(
                 clearable=False,
                 style={
                     "height": "3rem",
-                    "width": "20rem",
+                    "width": "18rem",
                     "padding": "2rem 1rem",
                     "marginLeft": "31rem",
                 },
@@ -150,7 +150,7 @@ sidebar = dbc.Col(
                         src="/assets/Truth2.png",
                         style={"height": "auto", "width": "20rem"},
                     ),
-                    align="left",
+                    align="right",
                 ),
             ],
         ),
@@ -310,19 +310,19 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-quality",
-                                    #style={"height":"315","width":"100%", "display": "block"},
+                                    style={"height":"100%","width": "100%", "minWidth":"0px", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
                                 type="border",
                                 fullscreen=False,
                             )
-                        ],
-                        style={
-                            "display": "flex",
-                            "flexDirection": "column",
-                            "width": "100%",
-                        },
+                        ]
+                        #,style={
+                         #   "display": "flex",
+                          #  "flexDirection": "column",
+                           # "width": "100%",
+                        #},
                     )
                 ],
                 className="shadow-sm mb-4 p-1",
@@ -341,19 +341,19 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="line-quantity",
-                                    #style={"height":"315","width": "100%", "display": "block"},
+                                    style={"height":"100%","width": "100%", "minWidth":"0px", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
                                 type="border",
                                 fullscreen=False,
                             )
-                        ],
-                        style={
-                            "display": "flex",
-                            "flexDirection": "column",
-                            "width": "100%",
-                        },
+                        ]
+                        #,style={
+                         #   "display": "flex",
+                          #  "flexDirection": "column",
+                           # "width": "100%",
+                        #},
                     )
                 ],
                 className="shadow-sm mb-4 p-1",
@@ -372,19 +372,19 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-cost",
-                                    #style={"height":"315","width": "100%", "display": "block"},
+                                    style={"height":"100%","width": "100%", "minWidth":"0px", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
                                 type="border",
                                 fullscreen=False,
                             )
-                        ],
-                        style={
-                            "display": "flex",
-                            "flexDirection": "column",
-                            "width": "100%",
-                        },
+                        ]
+                        #,style={
+                         #   "display": "flex",
+                          #  "flexDirection": "column",
+                           # "width": "100%",
+                        #},
                     ),
                 ],
                 className="shadow-sm mb-4 p-1",
@@ -537,7 +537,7 @@ def update_dashboard(selected_supplier):
         xaxis={"automargin": True},
         yaxis={"automargin": True},
         margin={"l": 10, "r": 10, "t": 30, "b": 10},
-        autosize=True,
+        autosize=False,
     )
     fig_line.add_annotation(
         x=70,
@@ -575,7 +575,7 @@ def update_dashboard(selected_supplier):
         xaxis={"automargin": True},
         yaxis={"automargin": True},
         margin={"l": 10, "r": 10, "t": 30, "b": 10},
-        autosize=True,
+        autosize=False,
     )
 
     # 3. Procurement Performance (Savings)
@@ -605,8 +605,8 @@ def update_dashboard(selected_supplier):
         xaxis={"automargin": True},
         yaxis={"automargin": True},
         margin={"l": 10, "r": 10, "t": 30, "b": 10},
-        autosize=True,
-        title={"font": {"size": 14}, "x": 0.02, "xanchor": "left"},
+        autosize=False,
+        title={"font": {"size": 12}, "x": 0.02, "xanchor": "left"},
     )
 
     # Table header
