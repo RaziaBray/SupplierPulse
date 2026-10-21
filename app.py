@@ -714,16 +714,15 @@ def update_dashboard(selected_supplier):
 # Clientside Callback to force-resize Plotly charts after they load
 clientside_callback(
     """
-    function(fig1, fig2, fig3) {
-        // Trigger a fake window resize event 150 milliseconds after 
-        // the figures load, giving Render's styling time to finish mounting.
-        setTimeout(function() {
-            window.dispatchEvent(new Event('resize'));
-        }, 150);
-        
-        // This ensures the callback finishes without altering any component properties
+    function(q_fig, qn_fig, c_fig) {
+        // Run a staggered interval sequence to capture the exact layout paint point
+        [200, 500, 1000].forEach(function(delay) {
+            setTimeout(function() {
+                window.dispatchEvent(new Event('resize'));
+            }, delay);
+        }); 
         return window.dash_clientside.no_update;
-    }
+        }
     """,
     # We output to a dummy property ('id') of one of your graphs just to satisfy Dash syntax
     Output('bar-quality', 'id'),  
