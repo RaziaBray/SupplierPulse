@@ -734,7 +734,7 @@ clientside_callback(
     """,
     Output('bar-quality', 'id'), 
     Input('bar-quality', 'figure'),         
-    Input('bar-quantity', 'figure'),        
+    Input('line-quantity', 'figure'),        
     Input('bar-cost', 'figure'),            
     prevent_initial_call=False
 )
