@@ -307,16 +307,16 @@ chart_row = dbc.Row(
                 [
                     dbc.CardBody(
                         [
-                            dbc.Spinner(
+                            #dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-quality",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
-                                color="primary",
-                                type="border",
-                                fullscreen=False,
-                            )
+                                #color="primary",
+                                #type="border",
+                                #fullscreen=False,
+                            #)
                         ]
                         #,style={
                          #   "display": "flex",
@@ -338,17 +338,17 @@ chart_row = dbc.Row(
                 [
                     dbc.CardBody(
                         [
-                            dbc.Spinner(
+                            #dbc.Spinner(
                                 dcc.Graph(
                                     id="line-quantity",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
-                                color="primary",
-                                type="border",
-                                fullscreen=False,
-                            )
-                        ],className="shadow-sm mb-4 p-1"
+                                #color="primary",
+                                #type="border",
+                                #fullscreen=False,
+                            #)
+                        ]
                         #,style={
                          #   "display": "flex",
                           #  "flexDirection": "column",
@@ -369,17 +369,17 @@ chart_row = dbc.Row(
                 [
                     dbc.CardBody(
                         [
-                            dbc.Spinner(
+                            #dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-cost",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
-                                color="primary",
-                                type="border",
-                                fullscreen=False,
-                            )
-                        ],className="shadow-sm mb-4 p-1"
+                                #color="primary",
+                                #type="border",
+                                #fullscreen=False,
+                            #)
+                        ]
                         #,style={
                          #   "display": "flex",
                           #  "flexDirection": "column",
@@ -714,13 +714,21 @@ def update_dashboard(selected_supplier):
 # Clientside Callback to force-resize Plotly charts after they load
 clientside_callback(
     """
-    function(q_fig, qn_fig, c_fig) {
-        // Run a staggered interval sequence to capture the exact layout paint point
-        [200, 500, 1000].forEach(function(delay) {
-            setTimeout(function() {
-                window.dispatchEvent(new Event('resize'));
-            }, delay);
-        });
+    function(id) {
+        // Poll every 500ms to see if the graphs have loaded into the DOM
+        var checkExist = setInterval(function() {
+            // Replace '.js-plotly-plot' with your specific graph ID if you prefer
+            var graphs = document.querySelectorAll('.js-plotly-plot'); 
+            
+            if (graphs.length > 0) {
+                // Give it one tiny moment to paint, then trigger resize
+                setTimeout(function() {
+                    window.dispatchEvent(new Event('resize'));
+                }, 200);
+                
+                clearInterval(checkExist); // Stop polling
+            }
+        }, 500);
         
         return window.dash_clientside.no_update;
     }
