@@ -310,7 +310,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-quality",
-                                    style={"height":"100%","width": "100%", "minWidth":"0px", "display": "block"},
+                                    style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
@@ -341,7 +341,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="line-quantity",
-                                    style={"height":"100%","width": "100%", "minWidth":"0px", "display": "block"},
+                                    style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
@@ -372,7 +372,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-cost",
-                                    style={"height":"100%","width": "100%", "minWidth":"0px", "display": "block"},
+                                    style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
                                 color="primary",
