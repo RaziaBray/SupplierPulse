@@ -307,27 +307,27 @@ chart_row = dbc.Row(
                 [
                     dbc.CardBody(
                         [
-                            #dbc.Spinner(
+                            dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-quality",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
-                                #color="primary",
-                                #type="border",
-                                #fullscreen=False,
-                            #)
+                                color="primary",
+                                type="border",
+                                fullscreen=False,
+                            )
                         ]
-                        #,style={
-                         #   "display": "flex",
-                          #  "flexDirection": "column",
-                           # "width": "100%",
-                        #},
+                        ,style={
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "width": "100%",
+                        },
                     )
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            #style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
+            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
@@ -338,27 +338,27 @@ chart_row = dbc.Row(
                 [
                     dbc.CardBody(
                         [
-                            #dbc.Spinner(
+                            dbc.Spinner(
                                 dcc.Graph(
                                     id="line-quantity",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
-                                #color="primary",
-                                #type="border",
-                                #fullscreen=False,
-                            #)
+                                color="primary",
+                                type="border",
+                                fullscreen=False,
+                            )
                         ]
-                        #,style={
-                         #   "display": "flex",
-                          #  "flexDirection": "column",
-                           # "width": "100%",
-                        #},
+                        ,style={
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "width": "100%",
+                        },
                     )
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            #style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
+            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
@@ -369,27 +369,27 @@ chart_row = dbc.Row(
                 [
                     dbc.CardBody(
                         [
-                            #dbc.Spinner(
+                            dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-cost",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
-                                #color="primary",
-                                #type="border",
-                                #fullscreen=False,
-                            #)
+                                color="primary",
+                                type="border",
+                                fullscreen=False,
+                            )
                         ]
-                        #,style={
-                         #   "display": "flex",
-                          #  "flexDirection": "column",
-                           # "width": "100%",
-                        #},
+                        ,style={
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "width": "100%",
+                        },
                     ),
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
-            #style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
+            style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
