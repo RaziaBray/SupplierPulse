@@ -715,34 +715,43 @@ def update_dashboard(selected_supplier):
 clientside_callback(
     """
     function(fig1, fig2, fig3) {
-        // Create an explicit array of your graph element IDs
+
         const graphIds = ['bar-quality', 'line-quantity', 'bar-cost'];
         
-        // Define an execution loop to brute-force the Render free tier bottleneck
-        let attempts = 0;
-        const forcePlotlyResize = setInterval(() => {
-            attempts++;
-            
-            graphIds.forEach(id => {
-                const graphDiv = document.getElementById(id);
-                // Verify the graph div exists AND Plotly has attached its internal methods
-                if (graphDiv && typeof Plotly !== 'undefined') {
-                    try {
-                        Plotly.Plots.resize(graphDiv);
-                    } catch (err) {
-                        // Plotly might still be rendering data frames, ignore safe errors
+        // This function forces the internal Plotly engine to recalculate its grid width
+        const forceResizeNow = () => {
+            if (typeof Plotly !== 'undefined') {
+                graphIds.forEach(id => {
+                    const graphDiv = document.getElementById(id);
+                    if (graphDiv) {
+                        try { Plotly.Plots.resize(graphDiv); } catch(e){}
                     }
-                }
-            });
-            
-            // Keep snapping it for 3.6 seconds (12 intervals * 300ms)
-            if (attempts >= 12) {
-                clearInterval(forcePlotlyResize);
-                console.log("Plotly API: Dimensions forcefully recalculated.");
+                });
             }
-        }, 300);
-        
+        };
+
+        // 1. If the window is already fully loaded, run the fix immediately
+        if (document.readyState === 'complete') {
+            forceResizeNow();
+        }
+
+        // 2. Listen to the browser's absolute final window completion stage
+        window.addEventListener('load', function() {
+            // A tiny timeout gives cached assets time to finish mounting into the DOM
+            setTimeout(forceResizeNow, 150);
+        });
+
+        // 3. Fallback: Keep an interval active just in case Render's free tier stream takes extra time
+        let count = 0;
+        const fallbackInterval = setInterval(() => {
+            forceResizeNow();
+            count++;
+            if (count >= 10) clearInterval(fallbackInterval);
+        }, 400);
+
         return window.dash_clientside.no_update;
+
+)
     }    
     """,
     Output('bar-quality', 'id'), 
