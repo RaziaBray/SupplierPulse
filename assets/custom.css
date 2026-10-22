@@ -7,6 +7,41 @@
     --bs-headings-margin-bottom: 0.5rem;
 }
 
+/* Force the Card and Graph wrappers to maintain a strict 3-column physical space */
+.card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
+/* Force Plotly's internal engine to fill the container immediately on paint */
+.js-plotly-plot {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+}
+
+.plot-container, .svg-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Force Plotly graphs to stop expanding awkwardly
 .js-plotly-plot .plotly .main-svg {
     max-width: 90%;
