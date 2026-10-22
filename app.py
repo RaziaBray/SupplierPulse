@@ -715,44 +715,33 @@ def update_dashboard(selected_supplier):
 clientside_callback(
     """
     function(fig1, fig2, fig3) {
-        // Find the graph elements in the DOM
-        const targetNodes = [
-            document.getElementById('bar-quality'),
-            document.getElementById('line-quantity'),
-            document.getElementById('bar-cost')
-        ];
+        // Create an explicit array of your graph element IDs
+        const graphIds = ['bar-quality', 'line-quantity', 'bar-cost'];
         
-        // Define a function that triggers the resize event cleanly
-        const triggerResize = () => {
-            window.dispatchEvent(new Event('resize'));
-        };
-
-        // Set up a MutationObserver to watch for layout shifts/rendering changes
-        const observer = new MutationObserver((mutationsList) => {
-            for (let mutation of mutationsList) {
-                // If anything inside our graph slots changes (like a spinner hiding or an SVG rendering)
-                if (mutation.type === 'childList' || mutation.type === 'attributes') {
-                    triggerResize();
+        // Define an execution loop to brute-force the Render free tier bottleneck
+        let attempts = 0;
+        const forcePlotlyResize = setInterval(() => {
+            attempts++;
+            
+            graphIds.forEach(id => {
+                const graphDiv = document.getElementById(id);
+                // Verify the graph div exists AND Plotly has attached its internal methods
+                if (graphDiv && typeof Plotly !== 'undefined') {
+                    try {
+                        Plotly.Plots.resize(graphDiv);
+                    } catch (err) {
+                        // Plotly might still be rendering data frames, ignore safe errors
+                    }
                 }
+            });
+            
+            // Keep snapping it for 3.6 seconds (12 intervals * 300ms)
+            if (attempts >= 12) {
+                clearInterval(forcePlotlyResize);
+                console.log("Plotly API: Dimensions forcefully recalculated.");
             }
-        });
-
-        // Start observing each of the 3 graph containers
-        targetNodes.forEach(node => {
-            if (node) {
-                observer.observe(node, { 
-                    attributes: true, 
-                    childList: true, 
-                    subtree: true 
-                });
-            }
-        });
-
-        // Also fallback to a couple of safety triggers to capture the 2.85s finish mark
-        setTimeout(triggerResize, 1000);
-        setTimeout(triggerResize, 2000);
-        setTimeout(triggerResize, 3500); // Catches past the 2.85s mark completely
-
+        }, 300);
+        
         return window.dash_clientside.no_update;
     }    
     """,
