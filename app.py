@@ -310,6 +310,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-quality",
+                                    className="w-100",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
@@ -327,11 +328,13 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
+            width=3,
             style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
             lg=4,
         ),
+
         # delivery performance chart
         dbc.Col(
             children=dbc.Card(
@@ -341,6 +344,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="line-quantity",
+                                    className="w-100",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
@@ -358,6 +362,7 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
+            width=3,
             style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
@@ -372,6 +377,7 @@ chart_row = dbc.Row(
                             dbc.Spinner(
                                 dcc.Graph(
                                     id="bar-cost",
+                                    className="w-100",
                                     style={"height":"50vh","width": "100%", "display": "block"},
                                     config={"responsive": True},
                                 ),
@@ -389,6 +395,7 @@ chart_row = dbc.Row(
                 ],
                 className="shadow-sm mb-4 p-1",
             ),
+            width=3,
             style={"flexShrink": "0", "flexGrow": "1", "minWidth": "0"},
             md=4,
             sm=12,
