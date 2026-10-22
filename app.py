@@ -714,45 +714,16 @@ def update_dashboard(selected_supplier):
 # Clientside Callback to force-resize Plotly charts after they load
 clientside_callback(
     """
-    function(fig1, fig2, fig3) {
-
-        const graphIds = ['bar-quality', 'line-quantity', 'bar-cost'];
-        
-        // This function forces the internal Plotly engine to recalculate its grid width
-        const forceResizeNow = () => {
-            if (typeof Plotly !== 'undefined') {
-                graphIds.forEach(id => {
-                    const graphDiv = document.getElementById(id);
-                    if (graphDiv) {
-                        try { Plotly.Plots.resize(graphDiv); } catch(e){}
-                    }
-                });
-            }
-        };
-
-        // 1. If the window is already fully loaded, run the fix immediately
-        if (document.readyState === 'complete') {
-            forceResizeNow();
-        }
-
-        // 2. Listen to the browser's absolute final window completion stage
-        window.addEventListener('load', function() {
-            // A tiny timeout gives cached assets time to finish mounting into the DOM
-            setTimeout(forceResizeNow, 150);
+    function(q_fig, qn_fig, c_fig) {
+        // Run a staggered interval sequence to capture the exact layout paint point
+        [200, 500, 1000].forEach(function(delay) {
+            setTimeout(function() {
+                window.dispatchEvent(new Event('resize'));
+            }, delay);
         });
-
-        // 3. Fallback: Keep an interval active just in case Render's free tier stream takes extra time
-        let count = 0;
-        const fallbackInterval = setInterval(() => {
-            forceResizeNow();
-            count++;
-            if (count >= 10) clearInterval(fallbackInterval);
-        }, 400);
-
+        
         return window.dash_clientside.no_update;
-
-)
-    }    
+    }
     """,
     Output('bar-quality', 'id'), 
     Input('bar-quality', 'figure'),         
