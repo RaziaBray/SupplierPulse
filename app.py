@@ -715,21 +715,20 @@ def update_dashboard(selected_supplier):
 clientside_callback(
     """
     function(id) {
-        // Poll every 500ms to see if the graphs have loaded into the DOM
-        var checkExist = setInterval(function() {
-            // Replace '.js-plotly-plot' with your specific graph ID if you prefer
-            var graphs = document.querySelectorAll('.js-plotly-plot'); 
-            
-            if (graphs.length > 0) {
-                // Give it one tiny moment to paint, then trigger resize
-                setTimeout(function() {
-                    window.dispatchEvent(new Event('resize'));
-                }, 200);
-                
-                clearInterval(checkExist); // Stop polling
+        // Find the wrapper container holding your graphs
+        var targetNode = document.getElementById('app-container');
+        if (!targetNode) return window.dash_clientside.no_update;
+
+        var observer = new MutationObserver(function(mutations, obs) {
+            var graphs = document.querySelectorAll('.js-plotly-plot');
+            if (graphs.length >= 3) { 
+                // Once all 3 charts are fully painted in the DOM, force the layout recalculation
+                window.dispatchEvent(new Event('resize'));
+                obs.disconnect(); // Stop watching to optimize performance
             }
-        }, 500);
-        
+        });
+
+        observer.observe(targetNode, { childList: true, subtree: true });
         return window.dash_clientside.no_update;
     }
     """,
