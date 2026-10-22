@@ -715,22 +715,45 @@ def update_dashboard(selected_supplier):
 clientside_callback(
     """
     function(fig1, fig2, fig3) {
-        // Create an interval that fires a resize event every 300ms
-        let count = 0;
-        const resizeInterval = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-            count++;
-            
-            // Stop firing after 10 loops (3 seconds total) 
-            // to prevent wasting the user's browser CPU.
-            if (count >= 10) {
-                clearInterval(resizeInterval);
-                console.log("Dash Clientside: Render lag stabilization complete.");
-            }
-        }, 300);
+        // Find the graph elements in the DOM
+        const targetNodes = [
+            document.getElementById('bar-quality'),
+            document.getElementById('line-quantity'),
+            document.getElementById('bar-cost')
+        ];
         
-        return window.dash_clientside.no_update;
-    }
+        // Define a function that triggers the resize event cleanly
+        const triggerResize = () => {
+            window.dispatchEvent(new Event('resize'));
+        };
+
+        // Set up a MutationObserver to watch for layout shifts/rendering changes
+        const observer = new MutationObserver((mutationsList) => {
+            for (let mutation of mutationsList) {
+                // If anything inside our graph slots changes (like a spinner hiding or an SVG rendering)
+                if (mutation.type === 'childList' || mutation.type === 'attributes') {
+                    triggerResize();
+                }
+            }
+        });
+
+        // Start observing each of the 3 graph containers
+        targetNodes.forEach(node => {
+            if (node) {
+                observer.observe(node, { 
+                    attributes: true, 
+                    childList: true, 
+                    subtree: true 
+                });
+            }
+        });
+
+        // Also fallback to a couple of safety triggers to capture the 2.85s finish mark
+        setTimeout(triggerResize, 1000);
+        setTimeout(triggerResize, 2000);
+        setTimeout(triggerResize, 3500); // Catches past the 2.85s mark completely
+
+        return window.dash_clientside.no_update;    
     """,
     Output('bar-quality', 'id'), 
     Input('bar-quality', 'figure'),         
