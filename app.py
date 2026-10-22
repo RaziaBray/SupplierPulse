@@ -715,20 +715,27 @@ def update_dashboard(selected_supplier):
 clientside_callback(
     """
     function(fig1, fig2, fig3) {
-        // We use a slightly longer timeout (250ms) to accommodate 
-        // the Render free tier processing lag on startup.
-        setTimeout(function() {
+        // Create an interval that fires a resize event every 300ms
+        let count = 0;
+        const resizeInterval = setInterval(function() {
             window.dispatchEvent(new Event('resize'));
-            console.log("Dash Clientside: Layout fixed after startup load.");
-        }, 250);
+            count++;
+            
+            // Stop firing after 10 loops (3 seconds total) 
+            // to prevent wasting the user's browser CPU.
+            if (count >= 10) {
+                clearInterval(resizeInterval);
+                console.log("Dash Clientside: Render lag stabilization complete.");
+            }
+        }, 300);
         
         return window.dash_clientside.no_update;
     }
     """,
-    Output('bar-quality', 'id'), # Targets an innocent styling class name as an anchor
-    Input('bar-quality', 'figure'),         # Watching 'id' forces it to wait until the 
-    Input('bar-quantity', 'figure'),        # spinner drops the placeholder and actually 
-    Input('bar-cost', 'figure'),            # injects the chart components into the active DOM.
+    Output('bar-quality', 'id'), 
+    Input('bar-quality', 'figure'),         
+    Input('bar-quantity', 'figure'),        
+    Input('bar-cost', 'figure'),            
     prevent_initial_call=False
 )
 
