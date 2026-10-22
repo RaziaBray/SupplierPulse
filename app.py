@@ -348,7 +348,7 @@ chart_row = dbc.Row(
                                 type="border",
                                 fullscreen=False,
                             )
-                        ]
+                        ],className="shadow-sm mb-4 p-1"
                         #,style={
                          #   "display": "flex",
                           #  "flexDirection": "column",
@@ -379,7 +379,7 @@ chart_row = dbc.Row(
                                 type="border",
                                 fullscreen=False,
                             )
-                        ]
+                        ],className="shadow-sm mb-4 p-1"
                         #,style={
                          #   "display": "flex",
                           #  "flexDirection": "column",
@@ -714,23 +714,21 @@ def update_dashboard(selected_supplier):
 # Clientside Callback to force-resize Plotly charts after they load
 clientside_callback(
     """
-    function(id1, id2, id3) {
-        // Since the spinner hides the elements on page refresh, 
-        // we execute a small delayed staggered loop to force redraws 
-        // the exact millisecond the charts pop out of the spinner.
-        [100, 300, 600, 1000].forEach(function(delay) {
-            setTimeout(function() {
-                window.dispatchEvent(new Event('resize'));
-            }, delay);
-        });
+    function(fig1, fig2, fig3) {
+        // We use a slightly longer timeout (250ms) to accommodate 
+        // the Render free tier processing lag on startup.
+        setTimeout(function() {
+            window.dispatchEvent(new Event('resize'));
+            console.log("Dash Clientside: Layout fixed after startup load.");
+        }, 250);
         
         return window.dash_clientside.no_update;
     }
     """,
-    Output('bar-quality', 'className'), # Targets an innocent styling class name as an anchor
-    Input('bar-quality', 'id'),         # Watching 'id' forces it to wait until the 
-    Input('bar-quantity', 'id'),        # spinner drops the placeholder and actually 
-    Input('bar-cost', 'id'),            # injects the chart components into the active DOM.
+    Output('bar-quality', 'id'), # Targets an innocent styling class name as an anchor
+    Input('bar-quality', 'figure'),         # Watching 'id' forces it to wait until the 
+    Input('bar-quantity', 'figure'),        # spinner drops the placeholder and actually 
+    Input('bar-cost', 'figure'),            # injects the chart components into the active DOM.
     prevent_initial_call=False
 )
 
