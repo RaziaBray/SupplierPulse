@@ -753,7 +753,8 @@ clientside_callback(
         setTimeout(triggerResize, 2000);
         setTimeout(triggerResize, 3500); // Catches past the 2.85s mark completely
 
-        return window.dash_clientside.no_update;    
+        return window.dash_clientside.no_update;
+    }    
     """,
     Output('bar-quality', 'id'), 
     Input('bar-quality', 'figure'),         
